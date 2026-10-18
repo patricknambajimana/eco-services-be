@@ -104,3 +104,14 @@ add a product (`POST /products`), create an order (`POST /orders`), pay it (`POS
 - **Notifications** (section 13 of the frontend doc) have no table in the ERD, so they are not built. Say the word and I will add a `notifications` table and endpoints.
 - **Session-expiry warning** is a frontend concern; the API simply returns 401 when the token expires.
 - No automated tests yet.
+
+
+
+
+GET  /communications/messages
+POST /communications/messages
+
+GET  /communications/emails
+POST /communications/emails
+
+postgresql://eco_services_user:aCjbCdxEZVG8VmOYC0cz0pQP4ygODUBX@dpg-dbag5h67bikc73egqu9g-a/eco_services
