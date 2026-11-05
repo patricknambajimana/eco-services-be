@@ -80,6 +80,10 @@ npm pkg set scripts.db:setup="node scripts/migrate.js && node scripts/seed.js"
 - In production, set `API_URL` to the public API origin (for example, `https://eco-services-be.onrender.com`) so Swagger uses the deployed API instead of localhost.
 - First login: `admin` / `Admin@12345` (from `.env`) - **change it right away**.
 
+### Render deployment
+
+Use `npm ci && npm run db:setup` as the Render **Build Command** and `npm start` as the **Start Command**. This applies the schema and creates the initial admin account before the API accepts login requests. Configure the database and security variables in Render's environment settings; do not commit them to the repository.
+
 ## 2. Testing in Swagger
 1. Open `/api-docs` -> `POST /auth/login` -> *Try it out* -> Execute.
 2. Copy the `token` from the response.

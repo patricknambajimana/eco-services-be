@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: eco-services-be
+    runtime: node
+    buildCommand: npm ci && npm run db:setup
+    startCommand: npm start
