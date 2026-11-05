@@ -1,6 +1,7 @@
 const env = require('./config/env');
 const app = require('./app');
 const { pool, testConnection } = require('./config/db');
+const { initializeDatabase } = require('./config/databaseSetup');
 
 let server;
 
@@ -8,8 +9,10 @@ const start = async () => {
     try {
         const info = await testConnection();
         console.log(`PostgreSQL connected -> database "${info.db}"`);
+        await initializeDatabase();
+        console.log('Database schema and login account are ready');
     } catch (err) {
-        console.error('Cannot connect to PostgreSQL:', err.message);
+        console.error('Cannot initialize PostgreSQL:', err.message);
         console.error('Check DB_HOST / DB_PORT / DB_NAME / DB_USER / DB_PASSWORD in your .env file.');
         process.exit(1);
     }
