@@ -11,6 +11,10 @@ if (missing.length) {
 module.exports = {
     nodeEnv: process.env.NODE_ENV || 'development',
     port: parseInt(process.env.PORT, 10) || 5000,
+    publicUrl:
+        process.env.API_URL ||
+        process.env.RENDER_EXTERNAL_URL ||
+        (process.env.NODE_ENV === 'production' ? 'https://eco-services-be.onrender.com' : `http://localhost:${parseInt(process.env.PORT, 10) || 5000}`),
     corsOrigin: process.env.CORS_ORIGIN || '*',
     db: {
         host: process.env.DB_HOST || 'localhost',

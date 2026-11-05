@@ -13,7 +13,7 @@ const options = {
                 '**How to test:** call `POST /auth/login`, copy the `token` from the response, click **Authorize** and paste it.\n\n' +
                 'Access is controlled by RBAC roles - a 403 means your role is not allowed to use that endpoint.',
         },
-        servers: [{ url: `http://localhost:${env.port}/api/v1`, description: 'Local development' }],
+        servers: [{ url: `${env.publicUrl}/api/v1`, description: env.nodeEnv === 'production' ? 'Production' : 'Local development' }],
         components: {
             securitySchemes: {
                 bearerAuth: { type: 'http', scheme: 'bearer', bearerFormat: 'JWT' },

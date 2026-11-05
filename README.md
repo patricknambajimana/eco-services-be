@@ -77,6 +77,7 @@ npm pkg set scripts.db:setup="node scripts/migrate.js && node scripts/seed.js"
 
 - API base URL: `http://localhost:5000/api/v1`
 - **Swagger docs: `http://localhost:5000/api-docs`**
+- In production, set `API_URL` to the public API origin (for example, `https://eco-services-be.onrender.com`) so Swagger uses the deployed API instead of localhost.
 - First login: `admin` / `Admin@12345` (from `.env`) - **change it right away**.
 
 ## 2. Testing in Swagger
